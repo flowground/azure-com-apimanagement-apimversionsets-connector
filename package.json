@@ -1,0 +1,15 @@
+{
+    "name": "azure-com-apimanagement-apimversionsets-connector",
+    "version": "2018.0.0",
+    "description": "Use these REST APIs for performing operations on the ApiVersionSet entity associated with your Azure API Management deployment. Using this entity you create and manage API Version Sets that are used to group APIs for consistent versioning.",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}

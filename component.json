@@ -1,0 +1,152 @@
+{
+    "title": "ApiManagementClient",
+    "description": "Use these REST APIs for performing operations on the ApiVersionSet entity associated with your Azure API Management deployment. Using this entity you create and manage API Version Sets that are used to group APIs for consistent versioning.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/apimanagement-apimversionsets/2018-06-01-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow.",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "ApiVersionSet_ListByService": {
+            "main": "./lib/actions/ApiVersionSet_ListByService.js",
+            "title": "Lists a collection of API Version Sets in the specified service instance.",
+            "description": "Lists a collection of API Version Sets in the specified service instance.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ApiVersionSet_ListByService.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ApiVersionSet_Delete": {
+            "main": "./lib/actions/ApiVersionSet_Delete.js",
+            "title": "Deletes specific Api Version Set.",
+            "description": "Deletes specific Api Version Set.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ApiVersionSet_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ApiVersionSet_Get": {
+            "main": "./lib/actions/ApiVersionSet_Get.js",
+            "title": "Gets the details of the Api Version Set specified by its identifier.",
+            "description": "Gets the details of the Api Version Set specified by its identifier.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ApiVersionSet_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ApiVersionSet_GetEntityTag": {
+            "main": "./lib/actions/ApiVersionSet_GetEntityTag.js",
+            "title": "Gets the entity state (Etag) version of the Api Version Set specified by its identifier.",
+            "description": "Gets the entity state (Etag) version of the Api Version Set specified by its identifier.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ApiVersionSet_GetEntityTag.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ApiVersionSet_Update": {
+            "main": "./lib/actions/ApiVersionSet_Update.js",
+            "title": "Updates the details of the Api VersionSet specified by its identifier.",
+            "description": "Updates the details of the Api VersionSet specified by its identifier.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ApiVersionSet_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ApiVersionSet_CreateOrUpdate": {
+            "main": "./lib/actions/ApiVersionSet_CreateOrUpdate.js",
+            "title": "Creates or Updates a Api Version Set.",
+            "description": "Creates or Updates a Api Version Set.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ApiVersionSet_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "serviceName": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50,
+            "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "versionSetId": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

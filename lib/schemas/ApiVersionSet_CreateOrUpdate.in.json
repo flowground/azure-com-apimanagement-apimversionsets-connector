@@ -1,0 +1,132 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "serviceName": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50,
+            "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "versionSetId": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "The Resource definition.",
+                    "properties": {
+                        "id": {
+                            "description": "Resource ID.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource name.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Resource type for API Management resource.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "Api Version Set Contract details.",
+            "properties": {
+                "properties": {
+                    "description": "Api VersionSet contract properties.",
+                    "x-ms-client-flatten": true,
+                    "allOf": [
+                        {
+                            "description": "Api Version set base parameters",
+                            "properties": {
+                                "description": {
+                                    "description": "Description of API Version Set.",
+                                    "type": "string"
+                                },
+                                "versionHeaderName": {
+                                    "description": "Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.",
+                                    "maxLength": 100,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "versionQueryName": {
+                                    "description": "Name of query parameter that indicates the API Version if versioningScheme is set to `query`.",
+                                    "maxLength": 100,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    ],
+                    "properties": {
+                        "displayName": {
+                            "description": "Name of API Version Set",
+                            "maxLength": 100,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "versioningScheme": {
+                            "description": "An value that determines where the API Version identifer will be located in a HTTP request.",
+                            "enum": [
+                                "Segment",
+                                "Query",
+                                "Header"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "versioningScheme",
+                                "values": [
+                                    {
+                                        "description": "The API Version is passed in a path segment.",
+                                        "value": "Segment"
+                                    },
+                                    {
+                                        "description": "The API Version is passed in a query parameter.",
+                                        "value": "Query"
+                                    },
+                                    {
+                                        "description": "The API Version is passed in a HTTP header.",
+                                        "value": "Header"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "displayName",
+                        "versioningScheme"
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        },
+        "If_Match": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
