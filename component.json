@@ -1,5 +1,5 @@
 {
-    "title": "ApiManagementClient",
+    "title": "ApiManagementClient (apimanagement-apimversionsets)",
     "description": "Use these REST APIs for performing operations on the ApiVersionSet entity associated with your Azure API Management deployment. Using this entity you create and manage API Version Sets that are used to group APIs for consistent versioning.",
     "docsUrl": "",
     "url": "https://api.apis.guru/v2/specs/azure.com/apimanagement-apimversionsets/2018-06-01-preview/swagger.json",
@@ -26,7 +26,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "azure_auth": {
+            "oauth2": {
                 "label": "Azure Active Directory OAuth2 Flow.",
                 "viewClass": "OAuthFieldView"
             }
@@ -34,7 +34,11 @@
         "oauth2": {
             "client_id": "{{OAUTH_CLIENT_ID}}",
             "client_secret": "{{OAUTH_CLIENT_SECRET}}",
-            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize",
+            "token_uri": "https://login.microsoftonline.com/common/oauth2/token",
+            "scopes": [
+                "user_impersonation"
+            ]
         }
     },
     "triggers": {
